@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 899.99,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Running Shoes",
+    "category": "Footwear",
+    "price": 2499,
+    "inStock": false
+  },
+  {
+    "id": 3,
+    "name": "Coffee Mug",
+    "category": "Kitchen",
+    "price": 199.5,
+    "inStock": true
+  },
+  {
+    "id": 4,
+    "name": "Notebook",
+    "category": "Stationery",
+    "price": 89.9,
+    "inStock": true
+  }
+]
