@@ -48,6 +48,7 @@ export default { regUserController,loginUser };
 import { json } from "express";
 import authService from "../services/authServices.js";
 import jwtToken from "../utils/jwt.js"
+import config from "../config/config.js";
 
 // REGISTER CONTROLLER
 const regUserController = async (req, res) => {
@@ -99,7 +100,7 @@ const loginUser = async (req, res) => {
 
     const tokens=jwtToken.createToken(data);
 
-    res.cookie("authToken",tokens,{ maxAge: 60 * 60 * 1000 });
+    res.cookie(config.cookieName, tokens, { maxAge: config.cookieMaxAgeMs });
     res.json(data);
     // const result=await jwtToken.verifyToken(tokens)
     // console.log(tokens);

@@ -1,13 +1,14 @@
-import jwt from 'jsonwebtoken'
-const createToken=(data)=>{
-    const token=jwt.sign(JSON.stringify(data),"secret");
-   return token;
-}
+import jwt from "jsonwebtoken";
+import config from "../config/config.js";
 
-
+const createToken = (data) => {
+  const options = config.jwtExpiresIn ? { expiresIn: config.jwtExpiresIn } : undefined;
+  const token = jwt.sign(JSON.stringify(data), config.jwtSecret, options);
+  return token;
+};
 async function verifyToken(authToken) {
   return await new Promise((resolve, reject) => {
-    jwt.verify(authToken, "secret", (error, data) => {
+    jwt.verify(authToken, config.jwtSecret, (error, data) => {
       if (error) {
         return reject(error); // reject if verification fails
       }
@@ -17,7 +18,7 @@ async function verifyToken(authToken) {
 }
 
 
-export default{
-    createToken,
-    verifyToken
-}
+export default {
+  createToken,
+  verifyToken,
+};

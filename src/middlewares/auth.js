@@ -2,7 +2,7 @@
 import jwtToken from "../utils/jwt.js";
 
 const auth = async (req, res, next) => {
-    const cookieHeader = req.headers.cookie;
+    const cookieHeader = await req.headers.cookie;
     if (!cookieHeader) {
         return res.status(401).send("you need authentication");
     }

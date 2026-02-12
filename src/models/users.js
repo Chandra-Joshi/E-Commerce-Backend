@@ -15,9 +15,7 @@ const userSchema=new mongoose.Schema({
     password:{
        type:String,
        required:[true,"password must be required"],
-       minLength:[6,"password length must be more 6 letter"],
-       
-      
+       minLength:[6,"password length must be more 6 letter"],  
     },
     roles:{
         type:[String],
@@ -30,9 +28,7 @@ const userSchema=new mongoose.Schema({
       createdAt:{
         type:Date,
         default:Date.now(),
-    },
-    
-})
+    },})
 
 const User=mongoose.model("User",userSchema);
 export default User;

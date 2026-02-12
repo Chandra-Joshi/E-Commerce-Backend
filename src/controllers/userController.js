@@ -1,6 +1,5 @@
 
 import userService from "../services/userService.js";
-
 const getUsers = async (req, res) => {
     try {
         const users = await userService.getUser();
